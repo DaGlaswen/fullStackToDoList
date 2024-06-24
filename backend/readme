@@ -1,0 +1,85 @@
+Simple Server on Node.JS
+API with JWT auth
+(uses express and jsonwebtoken)
+
+
+npm i
+node .
+
+----------------------------------------------------------------
+
+Examples:
+
+
+POST
+http://127.0.0.1:7000/api/auth/signin
+with body:
+{
+      "login": "user1",
+      "password": "password1"
+}
+result:
+{
+    "id": 1,
+    "login": "user1",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjc1MjQ2ODcyfQ.A7i03vebi1HzvQjb0lnxAzqJq-yeJeW1CPgOhJBVKN4"
+}
+
+
+
+POST
+http://127.0.0.1:7000/api/auth/signup
+with body:
+{
+    "login": "dmalex",
+    "password": "password2",
+    "email": "advev@mail.ru"
+}
+result:
+{
+    "id": 446114,
+    "login": "dmalex",
+    "password": "password2",
+    "email": "advev@mail.ru",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDQ2MTE0LCJpYXQiOjE2NzUyNDY5MjR9.63PJMcGhaz08q8yi6UuRaL10-Ic2gJB5QPykcnkdxfE"
+}
+
+
+
+POST
+http://127.0.0.1:7000/api/auth/checkout
+with authorization Bearer Token:
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTI0MDQyLCJpYXQiOjE2NzUyNDIwNTB9.fg5HutZ8T3X-uNDQEmsQzFVUOykLau6M8vjABWtUWHk
+result:
+{
+    "id": 124042,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTI0MDQyLCJpYXQiOjE2NzUyNDIwNTB9.fg5HutZ8T3X-uNDQEmsQzFVUOykLau6M8vjABWtUWHk"
+}
+
+
+
+GET
+http://127.0.0.1:7000/api/auth/user
+with authorization Bearer Token:
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTI0MDQyLCJpYXQiOjE2NzUyNDIwNTB9.fg5HutZ8T3X-uNDQEmsQzFVUOykLau6M8vjABWtUWHk
+result:
+{
+    "id": 1,
+    "login": "user1",
+    "password": "password1",
+    "email": "advev@mail.ru",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTI0MDQyLCJpYXQiOjE2NzUyNDIwNTB9.fg5HutZ8T3X-uNDQEmsQzFVUOykLau6M8vjABWtUWHk"
+}
+
+
+
+GET
+http://127.0.0.1:7000/api/auth/data
+with authorization Bearer Token:
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTI0MDQyLCJpYXQiOjE2NzUyNDIwNTB9.fg5HutZ8T3X-uNDQEmsQzFVUOykLau6M8vjABWtUWHk
+result:
+{
+    "data": "some data"
+}
+
+-------------------------------------------------------------------------------
